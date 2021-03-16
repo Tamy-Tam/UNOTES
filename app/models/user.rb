@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :notes, dependent: :destroy
   has_many :favourite_notes, dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
