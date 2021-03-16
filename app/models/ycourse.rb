@@ -1,0 +1,2 @@
+class Ycourse < ApplicationRecord
+end
