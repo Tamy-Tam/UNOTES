@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_113030) do
+ActiveRecord::Schema.define(version: 2021_03_16_113419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourite_notes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_favourite_notes_on_note_id"
+    t.index ["user_id"], name: "index_favourite_notes_on_user_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -52,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_03_16_113030) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favourite_notes", "notes"
+  add_foreign_key "favourite_notes", "users"
   add_foreign_key "notes", "users"
   add_foreign_key "notes", "ycourses"
 end
