@@ -1,0 +1,2 @@
+class YcoursesController < ApplicationController
+end
