@@ -8,5 +8,64 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 121px;
+  margin-left: 5rem;
+}
+.navbar-brand {
+  color: white;
+}
+
+.nav-link{
+   margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 16px;
+    padding-left: 16px;
+    transition: all 350ms ease;
+    font-family: Muli, sans-serif;
+    color: #001a49;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.navigation-button-wrap {
+    display: inline-flex;
+    align-items: center;
+}
+
+.navigation-side-plain {
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+
+.left_menu {
+    position:absolute;
+    left:20px;
+}
+
+
+.w-nav-link {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #222222;
+    padding: 20px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button_unotes {
+  display: flex;
+  min-height: 58px;
+  padding: 14px 48px;
+  cursor: pointer;
+  border-radius: 100px;
+  align-items: center;
+  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
+  color:white;
+  font-weight: lighter;
+  font-size: 14px;
 }
