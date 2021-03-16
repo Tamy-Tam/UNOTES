@@ -1,0 +1,9 @@
+<% if policy(Note).create? %>
+  <%= link_to "New note", new_note_path %>
+<% end %>
+
+<% @notes.each do |note| %>
+  <% if policy(note).edit? %>
+    <%= link_to "Update", edit_note_path(note) %>
+  <% end %>
+<% end %>
