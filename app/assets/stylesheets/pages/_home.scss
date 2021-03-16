@@ -20,6 +20,9 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
+.text-span {
+    color: #c00dff;
+}
 
 .w-layout-grid {
     display: -ms-grid;
@@ -238,5 +241,6 @@ body {
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 
 
