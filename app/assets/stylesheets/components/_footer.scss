@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body {
+  font-family: Montserrat, sans-serif;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+div {
+  display: block;
+}
+
+.footer {
+  // position: relative;
+  padding: 132px 3%;
+  background-color: #fbf3ff;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: none;
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -ms-grid-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+}
+
+.w-layout-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+
+.footer-logo {
+  background-size: cover;
+  height: 100px;
+  width: 250px;
+}
+
+.footer-title {
+  margin-bottom: 16px;
+  font-family: Montserrat, sans-serif;
+  color: #001a49;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.footer-link {
+  display: block;
+  margin-bottom: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: Muli, sans-serif;
+  color: #4f596a;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+.footer-links a {
+  background-color: transparent;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
