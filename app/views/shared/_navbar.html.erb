@@ -1,19 +1,15 @@
 <div class="navigation-container-full">
       <div class="navigation-side-plain">
-        <li class="nav-item active">
-          <%= link_to "Discover courses", root_path, class: "nav-link w-nav-link" %>
-        </li>
-        <li class="nav-item ">
-          <%= link_to "What students say", "#", class: "nav-link w-nav-link" %>
-        </li>
-
-        <div class="navigation-button-wrap">
-        <li class="nav-item">
-          <%= link_to "Login", new_user_registration_path, class: "btn btn-link register-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Create an account", new_user_session_path, class: "btn nav-cta rounded-pill button_unotes" %>
-        </li>
+        <%= link_to root_path, class: "brand w-nav-brand w--current" do %>
+        <%= image_tag "https://res.cloudinary.com/dr1gk6cpf/image/upload/v1615903358/Unotes/604c9916f9cdceeb6154666b_logo-orange_sgokhs.svg" %>
+        <% end %>
+        <nav role="navigation" class="nav-menu w-nav-menu pl-3">
+          <a href="#Course" class="nav-link w-nav-link">Discover courses</a>
+          <a href="#Testimonial" class="nav-link w-nav-link">What students say</a>
+        </nav>
+        <div class="menu-button-green w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+          <div class="w-icon-nav-menu"></div>
+        </div>
       </div>
       <div class="navigation-button-wrap">
         <%= link_to "Login", new_user_session_path, class: "nav-link w-nav-link" %>
