@@ -106,20 +106,20 @@ body {
     white-space: nowrap;
     cursor: pointer;
   }
-
+  
   .button.button-space {
     margin-top: 32px;
   }
-
+  
   .button.create-note-btn.color-white {
     color: #fff;
   }
-
+  
   .button.submit-button {
     min-height: 60px;
     margin-left: -50px;
   }
-
+  
   /*AVATAR*/
   .avatar-wrap {
     display: -webkit-box;
@@ -132,7 +132,7 @@ body {
     -ms-flex-align: center;
     align-items: center;
   }
-
+  
   .avatar {
     width: 62px;
     height: 62px;
@@ -141,12 +141,12 @@ body {
     border-color: #fff;
     border-radius: 100px;
   }
-
+  
   .avatar.avatar-02 {
     position: relative;
     left: -20px;
   }
-
+  
   .avatar.avatar-03 {
     position: relative;
     left: -40px;
@@ -209,7 +209,7 @@ body {
     border-radius: 35px;
     background-color: #f5a883;
   }
-
+  
   .video-link {
     display: -webkit-box;
     display: -webkit-flex;
@@ -242,61 +242,5 @@ body {
   object-fit: cover;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.title-wrap {
-
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 60px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
 
-.title-tag {
-    display: flex;
-    min-height: 38px;
-    margin-bottom: 38px;
-    padding: 6px 25px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    background-color: #fff2e7;
-    color: #9f06ff;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.content-h2 {
-    margin-top: 0px;
-    margin-bottom: 22px;
-    color: #001a49;
-    font-size: 54px;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    font-weight:bolder;
-}
-
-
-.side-pattern-right {
-    position: absolute;
-    left: auto;
-    top: 10%;
-    right: 0%;
-    bottom: auto;
-    z-index: -1;
-}
-
-.content-section{
-  margin-top: 50px;
-}
