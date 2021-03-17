@@ -19,10 +19,8 @@
 
 
 <% if @ycourses
-  @ycourses.each do |ycourse| %>
-  <iframe width="300" height="200" src="<%=ycourse.url%>"
-   frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <p><%= ycourse.title%>|</p>
-
+  @ycourses_url.each do |ycourseID| %>
+<img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg">
 <% end %>
 <% end %>
+</div>

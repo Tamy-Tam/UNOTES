@@ -7,7 +7,9 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
     @notes = policy_scope(Note).order(created_at: :desc)
     @current_user = current_user
     @ycourses = Ycourse.all
-
+    @ycourses_url = @ycourses.map do |ycourse|
+        get_youtube_id(ycourse.url)
+    end
   end
 
   def show
@@ -16,19 +18,20 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def new
     @note = Note.new
+    @ycourse = Ycourse.new
+    @note.ycourse = @ycourse
     authorize @note
   end
 
   def create
-    @note = Note.new(note_params)
-    @note.user = current_user.id
-    @note.ycourse = current_ycourse.id
-    authorize @note
-    if @note.save
-      redirect_to note_path(@note), notice: "A new Note has been created!"
-    else
-      render :new
-    end
+    # @note = Note.new(note_params)
+    # @note.user_id = current_user.id
+    # authorize @note
+    # if @note.save
+    #   redirect_to note_path(@note), notice: "A new Note has been created!"
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -53,10 +56,18 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   private
 
   def note_params
-    params.require(:note).permit(:title)
+    params.require(:note).permit(:title, :content)
   end
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def get_youtube_id(url)
+    url = url.gsub(/(>|<)/i, '').split(%r{(vi/|v=|/v/|youtu\.be/|/embed/)})
+    return url if url[2].nil?
+
+    id = url[2].split(/[^0-9a-z_\-]/i)
+    id[0]
   end
 end

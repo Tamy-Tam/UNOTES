@@ -12,10 +12,12 @@ class YcoursesController < ApplicationController
 
   def create
     @ycourse = Ycourse.new(ycourse_params)
-    @ycourse.user = current_user.id
+    @note = Note.new
+    @note.ycourse = @ycourse
+    @note.user = current_user
     authorize @ycourse
-    if @ycourse.save
-      redirect_to note_path(@ycourse), notice: "A new Youtube Course has been added!"
+    if @ycourse.save && @note.save
+      redirect_to note_path(@note), notice: "A new Youtube Course has been added!"
     else
       render :new
     end
@@ -29,9 +31,8 @@ class YcoursesController < ApplicationController
 
   private
 
-
-  def note_params
-    params.require(:ycourse).permit(:title, :url)
+  def ycourse_params
+    params.require(:ycourse).permit(:url)
   end
 
   def set_ycourse

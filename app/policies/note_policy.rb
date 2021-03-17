@@ -8,11 +8,11 @@ class NotePolicy < ApplicationPolicy
   end
 
   def index?
-    visible? || record.user == user
+    record.visible? || record.user == user
   end
 
   def show?
-    visible? || record.user == user
+    record.visible? || record.user == user
   end
 
   def create?
