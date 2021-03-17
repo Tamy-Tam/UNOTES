@@ -18,19 +18,20 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def new
     @note = Note.new
+    @ycourse = Ycourse.new
+    @note.ycourse = @ycourse
     authorize @note
   end
 
   def create
-    @note = Note.new(note_params)
-    @note.user = current_user.id
-    @note.ycourse = current_ycourse.id
-    authorize @note
-    if @note.save
-      redirect_to note_path(@note), notice: "A new Note has been created!"
-    else
-      render :new
-    end
+    # @note = Note.new(note_params)
+    # @note.user_id = current_user.id
+    # authorize @note
+    # if @note.save
+    #   redirect_to note_path(@note), notice: "A new Note has been created!"
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -55,7 +56,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   private
 
   def note_params
-    params.require(:note).permit(:title)
+    params.require(:note).permit(:title, :content)
   end
 
   def set_note
