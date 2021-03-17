@@ -3,13 +3,14 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = Note.all || "0"
     @notes = policy_scope(Note).order(created_at: :desc)
     @current_user = current_user
-    @ycourses = Ycourse.all
+    @ycourses = Ycourse.all || "0"
     @ycourses_url = @ycourses.map do |ycourse|
         get_youtube_id(ycourse.url)
     end
+    @fav_notes = FavouriteNote.all || "0"
   end
 
   def show

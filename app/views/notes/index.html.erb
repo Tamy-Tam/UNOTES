@@ -2,7 +2,12 @@
 
 <div class="user-wrapper"><img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
     <h3 class="welcome-name">Welcome back <%=@current_user.first_name%></h3>
-    <p class="welcome-name">you have <%=@notes.count%> notes </p>
+    <button type="button" class="welcome-name btn btn-primary">
+      You have <span class="badge rounded-pill bg-secondary"><%=@notes.count%> notes </span> &
+              <span class="badge rounded-pill bg-secondary"><%=@fav_notes.count%> favourites notes </span>
+      <span class="visually-hidden"></span>
+    </button>
+
     <% if policy(Note).create? %>
       <%= link_to "+ Create Note", new_note_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
     <% end %>
