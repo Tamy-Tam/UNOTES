@@ -12,7 +12,7 @@ class YcoursesController < ApplicationController
 
   def create
     @ycourse = Ycourse.new(ycourse_params)
-    @ycourse.user_id = current_user.id
+    @ycourse.user = current_user.id
     authorize @ycourse
     if @ycourse.save
       redirect_to note_path(@ycourse), notice: "A new Youtube Course has been added!"
