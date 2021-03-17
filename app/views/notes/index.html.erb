@@ -11,11 +11,17 @@
 
 </div>
 
-<% if @ycourses
+
+<div class="container mb-5 pb-5">
+  <div id="ycourse-list-wrapper">
+  <% if @ycourses
   @ycourses_url.each do |ycourseID| %>
-<img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg">
+<img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
 <% end %>
 <% end %>
+</div>
+</div>
+
 </div>
 
 
