@@ -21,7 +21,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
     @note.user_id = current_user.id
     authorize @note
     if @note.save
-      redirect_to note_path(@note), notice: "Un nouvelle Note a été créée!"
+      redirect_to note_path(@note), notice: "A new Note has been created!"
     else
       render :new
     end
