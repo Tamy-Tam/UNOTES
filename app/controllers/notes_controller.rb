@@ -5,6 +5,11 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   def index
     @notes = Note.all
     @notes = policy_scope(Note).order(created_at: :desc)
+    @current_user = current_user
+    @ycourses = Ycourse.all
+    @ycourses_url = @ycourses.map do |ycourse|
+        get_youtube_id(ycourse.url)
+    end
   end
 
   def show
@@ -13,6 +18,8 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def new
     @note = Note.new
+    @ycourse = Ycourse.new
+    @note.ycourse = @ycourse
     authorize @note
   end
 
@@ -50,10 +57,18 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   private
 
   def note_params
-    params.require(:note).permit(:title)
+    params.require(:note).permit(:title, :content)
   end
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def get_youtube_id(url)
+    url = url.gsub(/(>|<)/i, '').split(%r{(vi/|v=|/v/|youtu\.be/|/embed/)})
+    return url if url[2].nil?
+
+    id = url[2].split(/[^0-9a-z_\-]/i)
+    id[0]
   end
 end
