@@ -5,8 +5,8 @@
         <% end %>
         <nav role="navigation" class="nav-menu w-nav-menu pl-3">
           <% if user_signed_in? %>
-              <%= link_to "Favorites", "#", class: "dropdown-item" %>
-               <%= link_to "My Courses", "#", class: "dropdown-item" %> 
+              <%= link_to "Favorites", "#", class: "nav-link w-nav-link" %>
+               <%= link_to "My Courses", notes_path, class: "nav-link w-nav-link" %> 
                <div class="navigation-button-wrap">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link w-nav-link" %>
               <%= link_to "Create a note", new_note_path, class: "button w-button" %>
