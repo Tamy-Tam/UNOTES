@@ -1,5 +1,5 @@
-.navbar-lewagon {
-  justify-content: space-between;
+.navbar {
+  position: fixed;
   background: white;
 }
 
@@ -29,16 +29,23 @@
 }
 
 .navigation-button-wrap {
-    display: inline-flex;
-    align-items: center;
-    position: fixed;
-    right: 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  left: 55vw;
+  position: absolute;
 }
 
 .navigation-side-plain {
     display: flex;
     align-items: center;
     position:relative;
+    width: 100%;
 }
 
 .left_menu {
