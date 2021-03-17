@@ -7,6 +7,14 @@ class NotePolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    visible? || record.user == user
+  end
+
+  def show?
+    visible? || record.user == user
+  end
+
   def create?
     return true
   end

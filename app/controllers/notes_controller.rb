@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
+before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
     @notes = Note.all
@@ -16,7 +17,14 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   end
 
   def create
+    @note = Note.new(note_params)
+    @note.user_id = current_user.id
     authorize @note
+    if @note.save
+      redirect_to note_path(@note), notice: "Un nouvelle Note a été créée!"
+    else
+      render :new
+    end
   end
 
   def edit
