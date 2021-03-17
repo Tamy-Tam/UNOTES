@@ -64,7 +64,9 @@ puts 'Creating 6 fake notes...'
   ycourse_one = Ycourse.last
   notes = Note.new(
     title: "Notes sur  #{Faker::Company.name}",
-    content: Faker::ChuckNorris.fact*10,
+    content: "#{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}
+    #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}
+    #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}",
     visible: false,
     user_id: user1.id,
     ycourse_id: ycourse_one.id
