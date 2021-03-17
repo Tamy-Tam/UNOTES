@@ -21,7 +21,8 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def create
     @note = Note.new(note_params)
-    @note.user_id = current_user.id
+    @note.user = current_user.id
+    @note.ycourse = current_ycourse.id
     authorize @note
     if @note.save
       redirect_to note_path(@note), notice: "A new Note has been created!"
