@@ -1,1 +1,16 @@
-<%= render '/ycourses/new', (ycourse: @note.ycourse) %>
+<%= simple_form_for @note do |f| %>
+<% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this Note from being saved:</h2>
+
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :title, placeholder: 'My Ruby Rails course'%>
+  <%= f.input :visible, inline_label: 'Yes, remember me' %>
+  <%= f.submit %>
+<% end %>

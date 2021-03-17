@@ -1,5 +1,15 @@
 <%= simple_form_for @ycourse do |f| %>
-  <%= f.input :title, placeholder: 'My Ruby Rails course'%>
+<% if @ycourse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ycourse.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% @ycourse.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.input :url, placeholder: 'Please enter an URL from Youtube' %>
   <%= f.submit %>
 <% end %>
