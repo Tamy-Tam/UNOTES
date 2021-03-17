@@ -5,6 +5,9 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   def index
     @notes = Note.all
     @notes = policy_scope(Note).order(created_at: :desc)
+    @current_user = current_user
+    @ycourses = Ycourse.all
+
   end
 
   def show
