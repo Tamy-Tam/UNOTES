@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
+  resources :ycourses, only: [:new, :create]
 end
