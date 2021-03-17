@@ -1,9 +1,19 @@
-<% if policy(Note).create? %>
-  <%= link_to "New note", new_note_path %>
-<% end %>
+<div class="container mt-5 d-flex justify-content-center .flex-column">
+
+<div class="user-wrapper"><img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
+    <h3 class="welcome-name">Welcome back Elon</h3>
+    
+    <% if policy(Note).create? %>
+      <%= link_to "+ Create Note", new_note_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
+    <% end %>
+</div>
+
 
 <% @notes.each do |note| %>
   <% if policy(note).edit? %>
     <%= link_to "Update", edit_note_path(note) %>
   <% end %>
 <% end %>
+
+
+</div>
