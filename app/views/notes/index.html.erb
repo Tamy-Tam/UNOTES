@@ -1,22 +1,20 @@
 <div class="container mt-5 d-flex justify-content-center .flex-column">
 
-<div class="user-wrapper"><img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
-    <h3 class="welcome-name">Welcome back <%=@current_user.first_name%></h3>
-    <div class="badge-wrapper"></div>
+  <div class="user-wrapper"><img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
+      <h3 class="welcome-name">Welcome back <%=@current_user.first_name%></h3>
+      <div class="badge-wrapper"></div>
 
-
-
-    <% if policy(Note).create? %>
-      <%= link_to "+ Create Note", new_ycourse_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
-    <% end %>
-</div>
-
+      <% if policy(Note).create? %>
+        <%= link_to "+ Create Note", new_ycourse_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
+      <% end %>
+  </div>
 
 </div>
 
 
 <div class="container mb-5 pb-5">
   <div id="ycourse-list-wrapper">
+
   <% if @ycourses
   @ycourses_url.each_with_index do |ycourseID, index| %>
   <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
@@ -25,6 +23,7 @@
 <% end %>
 <% end %>
 </div>
+
 </div>
 </div>
 <div>
