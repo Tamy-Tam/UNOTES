@@ -1,0 +1,16 @@
+.y-course-wrapper{
+    position: relative;
+    display: flex;
+    height: 100vh;
+}
+
+.half-screen {
+    width: 50%;
+    height: 100%;
+}
+
+.half-screen-right {
+    width: 50%;
+    overflow: scroll;
+    padding: 5%;
+}
