@@ -3,7 +3,7 @@
 <div class="user-wrapper"><img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
     <h3 class="welcome-name">Welcome back <%=@current_user.first_name%></h3>
     <% if policy(Note).create? %>
-      <%= link_to "+ Create Note", new_note_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
+      <%= link_to "+ Create Note", new_ycourse_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
     <% end %>
 </div>
 
