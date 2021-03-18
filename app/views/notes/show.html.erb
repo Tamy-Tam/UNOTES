@@ -1,10 +1,10 @@
-<div id=ycourse-wrapper>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=@ycourseID%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-<div class="ce-example">
-    <div class="ce-example__content _ce-example__content--small">
-      <div id="editorjs"></div>
-    </div>
-
+<div class="y-course-wrapper">
+  <div class="half-screen youtube-video-wrapper">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=@ycourseID%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
+
+  <div class="half-screen-right">
+      <div id="editorjs" class="container">
+      </div>
+  </div>
+</div>
