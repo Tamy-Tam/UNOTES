@@ -8,7 +8,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
     @current_user = current_user
     @ycourses = Ycourse.all || "0"
     @ycourses_url = @ycourses.map do |ycourse|
-        get_youtube_id(ycourse.url)
+      get_youtube_id(ycourse.url)
     end
     @fav_notes = FavouriteNote.all || "0"
 
@@ -17,15 +17,10 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
       @search_ycourse = @search_notes.map do |ycourse|
         get_youtube_id(Ycourse.find(ycourse.ycourse_id).url)
       end
-
     else
       @search_notes = @notes
     end
-
-end
-
-
-
+  end
 
   def show
     authorize @note
@@ -40,8 +35,7 @@ end
 
   def create
     @note = Note.new(note_params)
-    @note.user = current_user.id
-    @note.ycourse = current_ycourse.id
+    @note.user_id = current_user.id
     authorize @note
     if @note.save
       redirect_to note_path(@note), notice: "A new Note has been created!"
