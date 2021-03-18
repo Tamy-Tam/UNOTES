@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notes do
+    resources :favourite_note, as: :fnote
+  end
+
   resources :ycourses, only: [:new, :create]
 end

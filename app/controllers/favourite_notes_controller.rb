@@ -3,7 +3,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_favouritenote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @favourite_notes = Favourite_note.all || "0"
+    @favourite_notes = FavouriteNote.all || "0"
     @current_user = current_user
   end
 
@@ -11,12 +11,12 @@ before_action :set_favouritenote, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @favourite_note = Favourite_note.new
+    @favourite_note = FavouriteNote.new
     @note = @favourite_note.note
   end
 
   def create
-    @favourite_note = Favourite_note.new(favourite_note_params)
+    @favourite_note = FavouriteNote.new(favourite_note_params)
     @notes = @favourite_note.note
     @favourite_note.user_id = current_user.id
     if @favourite_note.save
@@ -49,7 +49,7 @@ before_action :set_favouritenote, only: [:show, :edit, :update, :destroy]
   end
 
   def set_favouritenote
-    @favourite_note = Favourite_note.find(params[:id])
+    @favourite_note = FavouriteNote.find(params[:id])
   end
 
   def get_youtube_id(url)
