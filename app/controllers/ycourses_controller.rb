@@ -1,8 +1,10 @@
 class YcoursesController < ApplicationController
-  before_action :set_ycourse, only: [:show, :edit, :update, :destroy]
+  before_action :set_ycourse, only: [:edit, :update, :destroy]
 
   def show
     authorize @ycourse
+    @ycourse = Ycourse.find(params[:id]) || "0"
+    @ycourseID = get_youtube_id(@ycourse.url)
   end
 
   def new
@@ -37,5 +39,13 @@ class YcoursesController < ApplicationController
 
   def set_ycourse
     @ycourse = Ycourse.find(params[:id])
+  end
+
+  def get_youtube_id(url)
+    url = url.gsub(/(>|<)/i, '').split(%r{(vi/|v=|/v/|youtu\.be/|/embed/)})
+    return url if url[2].nil?
+
+    id = url[2].split(/[^0-9a-z_\-]/i)
+    id[0]
   end
 end

@@ -24,6 +24,8 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def show
     authorize @note
+    @ycourse = Ycourse.find(params[:id]) || "0"
+    @ycourseID = get_youtube_id(@ycourse.url)
   end
 
   def new
