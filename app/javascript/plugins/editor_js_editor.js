@@ -171,16 +171,7 @@ const initEditor = () =>{
               text : 'We have been working on this project more than three years. Several large media projects help us to test and debug the Editor, to make its core more stable. At the same time we significantly improved the API. Now, it can be used to create any plugin for any task. Hope you enjoy. 😏'
             }
           },
-          {
-            type: 'image',
-            data: {
-              url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.123rf.com%2Fphoto_50956248_collection-vecteur-de-b%25C3%25A9b%25C3%25A9-logo-enfants-conception-d-%25C3%25A9tiquettes-de-mode-v%25C3%25AAtements-pour-enfants-de-marqu.html&psig=AOvVaw0w9e7OAZuv-4Qr7aMANzw6&ust=1616166189991000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCz_q-Ouu8CFQAAAAAdAAAAABAD',
-              caption: '',
-              stretched: false,
-              withBorder: true,
-              withBackground: false,
-            }
-          },
+          
         ]
       },
 
