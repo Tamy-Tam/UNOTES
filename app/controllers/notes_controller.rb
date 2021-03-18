@@ -7,6 +7,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
     @notes = policy_scope(Note).order(created_at: :desc)
     @current_user = current_user
     @ycourses = Ycourse.all || "0"
+
     @ycourses_url = @ycourses.map do |ycourse|
       get_youtube_id(ycourse.url)
     end
