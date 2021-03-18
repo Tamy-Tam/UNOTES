@@ -11,7 +11,7 @@
         <div class="features-wrap">
           <a href="#" class="feature-link w-inline-block" id="favorite-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt=""></a>
           <a href="#" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
-          <a href="#" class="feature-link w-inline-block" id="delete-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg" loading="lazy" alt=""></a>
+          <a href="<%= link_to 'Destroy', @note, method: :delete, data: { confirm: 'Are you sure?' } %>" class="feature-link w-inline-block" id="delete-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg" loading="lazy" alt=""></a>
         </div>
       </div>
       <div id="editorjs" class="container"></div>
