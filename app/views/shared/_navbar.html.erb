@@ -6,12 +6,12 @@
         <nav role="navigation" class="nav-menu w-nav-menu pl-3">
           <% if user_signed_in? %>
               <%= link_to "Favorites", "#", class: "nav-link w-nav-link" %>
-               <%= link_to "My Courses", notes_path, class: "nav-link w-nav-link" %> 
+               <%= link_to "My Courses", notes_path, class: "nav-link w-nav-link" %>
                <div class="navigation-button-wrap">
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link w-nav-link" %>
-              <%= link_to "Create a note", new_note_path, class: "button w-button" %>
+              <%= link_to "Create a note", new_ycourse_path, class: "button w-button" %>
             </div>
-               
+
           <% else %>
             <a href="#Course" class="nav-link w-nav-link">Discover courses</a>
             <a href="#Testimonial" class="nav-link w-nav-link">What students say</a>
@@ -22,5 +22,5 @@
           <% end %>
         </nav>
       </div>
-      
+
     </div>
