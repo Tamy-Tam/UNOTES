@@ -15,7 +15,8 @@
   <div id="ycourse-list-wrapper">
     <% if @ycourses
       @ycourses_url.each do |ycourseID| %>
-        <a href="<%= notes_path(note) %>">
+      <% note_path(@note) %>
+        <a href="">
         <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
         </a>
       <% end %>
