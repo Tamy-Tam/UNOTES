@@ -9,7 +9,9 @@
 
 User.destroy_all if Rails.env.development?
 Ycourse.destroy_all if Rails.env.development?
-#Reservation.destroy_all if Rails.env.development?
+Note.destroy_all if Rails.env.development?
+FavouriteNote.destroy_all if Rails.env.development?
+
 
 #FAKING USERS
 require 'faker'
@@ -44,24 +46,46 @@ Ycourse2.save!
 Ycourse3 = Ycourse.new(url: "https://www.youtube.com/embed/oUJolR5bX6g",title: "APPRENDRE PYTHON [TUTO PROGRAMMATION COMPLET DÉBUTANT]")
 Ycourse3.save!
 
+
 Ycourse4 = Ycourse.new(url: "https://www.youtube.com/embed/PE8FQ6zihhw",title: "Découverte du CSS (1/31) : Présentation")
 Ycourse4.save!
 
-Ycourse5 = Ycourse.new(url: "https://www.youtube.com/embed/J9w-cir5a6U",title: "CREER UN SITE ? HTML/CSS :1 - LES BASES")
+Ycourse5 = Ycourse.new(url: "https://www.youtube.com/embed/J9w-cir5a6U",title: "CREER UN SITE ? HTML/CSS #1 - LES BASES")
 Ycourse5.save!
 
-Ycourse6 = Ycourse.new(url: "https://www.youtube.com/embed/0PA69L88HeI&list=PLjwdMgw5TTLV7VsXd9NOeq39soYXORezN",title: "NodeJS (1/6) : Qu’est ce que NodeJS ?")
+Ycourse6 = Ycourse.new(url: "https://www.youtube.com/embed/0PA69L88HeI&list=PLjwdMgw5TTLV7VsXd9NOeq39soYXORezN",title: "NodeJS (1/6) : Qu'est ce que NodeJS ?")
 Ycourse6.save!
 
 puts 'ycourses created!'
 
- # properties = Property.new(
-  #  name:  "Chateau #{Faker::Company.name}",
-   # address: Faker::Address.full_address,
-    #price: Faker::Number.number(digits: 5),
-    #photo: "https://picsum.photos/1400/500",
-    #user_id: user1.id
-  #)
- #properties.save!
-#end
+
+puts 'Creating 6 fake notes...'
+6.times do
+  ycourse_one = Ycourse.last
+  notes = Note.new(
+    title: "Notes sur  #{Faker::Company.name}",
+    content: "#{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}
+    #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}
+    #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}",
+    visible: false,
+    user_id: user1.id,
+    ycourse_id: ycourse_one.id
+  )
+  notes.save!
+end
+puts 'notes created!'
+
+
+puts 'Creating 5 fake favourite notes...'
+5.times do
+  note_one = Note.last
+  fav_note = FavouriteNote.new(
+    user_id: user1.id,
+    note_id: note_one .id
+  )
+  fav_note.save!
+end
+puts 'favourite notes created!'
+
 puts 'Finished!'
+

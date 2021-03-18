@@ -3,14 +3,29 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = Note.all || "0"
     @notes = policy_scope(Note).order(created_at: :desc)
     @current_user = current_user
-    @ycourses = Ycourse.all
+    @ycourses = Ycourse.all || "0"
     @ycourses_url = @ycourses.map do |ycourse|
         get_youtube_id(ycourse.url)
     end
-  end
+    @fav_notes = FavouriteNote.all || "0"
+
+    if params[:search].present?
+      @search_notes = Note.where("content ILIKE ?", "%#{params[:search]}%")
+      @search_ycourse = @search_notes.map do |ycourse|
+        get_youtube_id(Ycourse.find(ycourse.ycourse_id).url)
+      end
+
+    else
+      @search_notes = @notes
+    end
+
+end
+
+
+
 
   def show
     authorize @note
