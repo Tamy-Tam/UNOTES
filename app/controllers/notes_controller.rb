@@ -11,7 +11,21 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
         get_youtube_id(ycourse.url)
     end
     @fav_notes = FavouriteNote.all || "0"
-  end
+
+    if params[:search].present?
+      @search_notes = Note.where("content ILIKE ?", "%#{params[:search]}%")
+      @search_ycourse = @search_notes.map do |ycourse|
+        get_youtube_id(Ycourse.find(ycourse.ycourse_id).url)
+      end
+
+    else
+      @search_notes = @notes
+    end
+
+end
+
+
+
 
   def show
     authorize @note

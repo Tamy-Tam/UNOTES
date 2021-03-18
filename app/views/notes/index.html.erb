@@ -8,6 +8,8 @@
       <span class="visually-hidden"></span>
     </button>
 
+
+
     <% if policy(Note).create? %>
       <%= link_to "+ Create Note", new_note_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
     <% end %>
@@ -15,6 +17,9 @@
 
 
 </div>
+
+
+
 
 
 <div class="container mb-5 pb-5">
@@ -26,7 +31,30 @@
 <% end %>
 </div>
 </div>
+</div>
+<div>
 
+  <div class="container mb-5 pb-5 justify-content-center ">
+    <h3>my Notes</h3>
+<%= form_tag(notes_path, :method => "get",
+    class: 'navbar-form navbar-left') do %>
+  <div class="input-group">
+    <%= search_field_tag :search, params[:search], placeholder: "looking for a keywork in a note...", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag "Search", :class => 'btn btn-info',:name => nil%>
+    </div>
+  </div>
+<% end %>
+
+<br>
+<h4>notes related to your search:</h4>
+<br>
+
+    <% if @search_ycourse
+      @search_ycourse.each do |result| %>
+    <img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg">
+    <% end %>
+    <% end %>
 </div>
 
 
