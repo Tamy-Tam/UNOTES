@@ -8,21 +8,7 @@
       
 
       <% if policy(Note).create? %>
-        <%= link_to "+ Create Note", new_ycourse_path, class:"button create-note-btn color-white w-button pl-4 pr-4" %>
-      <% end %>
-  </div>
-
-</div>
-
-
-
-
-<!--Filter Form-->
-<div class="wrapper card-box">
-
-  <div class="container mb-5 pb-5 d-flex justify-content-center search-wrap">
-    <h4 class=="search-title">Search My Notes</h4>
-<%= form_tag(notes_path, :method => "get",
+        <%= form_tag(notes_path, :method => "get",
     class: 'search-form') do %>
   <div class="input-group">
     <%= search_field_tag :search, params[:search], placeholder: "Looking for a keywork in a note...", class: "search-note-input" %>
@@ -31,7 +17,15 @@
     </div>
   </div>
 <% end %>
-<!--Filter Form END-->
+      <% end %>
+  </div>
+
+</div>
+
+
+
+
+
 
 
 <!--Search Results-->
