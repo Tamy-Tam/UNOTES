@@ -1,6 +1,6 @@
-<div class="video-url text-center">
+<div class="title-wrap">
 
-  <%= simple_form_for @ycourse do |f| %>
+  <%= simple_form_for @ycourse, html: { class: "form-wrap"} do |f| %>
   <% if @ycourse.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@ycourse.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -12,8 +12,8 @@
         </ul>
       </div>
     <% end %>
-    <%= f.input :url, placeholder: 'Please enter an URL from Youtube', input_html: { class: "url-input form-control-lg" }, label:'' %>
-    <%=  f.button :submit, 'Insert a course!', class: 'button btn-url color-white w-button pl-6 pr-6' %>
+    <%= f.input :url, placeholder: 'Please enter an URL from Youtube', input_html: { class: "text-field" }, label:'' %>
+    <%=  f.button :submit, 'Insert a course!', class: 'button w-button button-url' %>
   <% end %>
 
 </div>
