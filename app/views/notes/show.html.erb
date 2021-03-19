@@ -10,7 +10,7 @@
         </a>
         <div class="features-wrap">
           <a href="<%=  new_fnote_path(@note) %>" class="feature-link w-inline-block" id="favorite-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt=""></a>
-          <a href="<%= new_note_path(@note) %>" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
+          <a href="#" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
           <a class="feature-link w-inline-block" id="delete-note" href="<%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %>"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg" loading="lazy" alt=""></a>
         </div>
       </div>
