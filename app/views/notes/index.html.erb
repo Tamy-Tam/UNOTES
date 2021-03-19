@@ -1,8 +1,8 @@
 <div class="container mt-5 d-flex justify-content-center .flex-column">
 
-  <div class="user-wrapper">
+  <div class="user-wrapper card-box">
       <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
-      <h3 class="welcome-name">Welcome back <%=@current_user.first_name%></h3>
+      <h3 class="welcome-name card-title">Welcome back <%=@current_user.first_name%></h3>
       <div class="badge-wrapper">
   </div>
       
@@ -18,7 +18,7 @@
 
 
 <!--Filter Form-->
-<div>
+<div class="wrapper card-box">
 
   <div class="container mb-5 pb-5 d-flex justify-content-center search-wrap">
     <h4 class=="search-title">Search My Notes</h4>
@@ -35,7 +35,7 @@
 
 
 <!--Search Results-->
-    <div class="container">
+    <div class="container card-box">
       <div id="ycourse-list-wrapper-result">
 
       <% if @search_ycourse
@@ -51,13 +51,13 @@
 
 <!--List Ycourse-->
 
-<div class="container mb-5 pb-5">
+<div class="container mb-5 pb-5 wrapper">
   <div id="ycourse-list-wrapper">
 
   <% if @ycourses
   @ycourses_url.each_with_index do |ycourseID, index| %>
-  <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
-    <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
+  <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>" class="card-box">
+    <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg ">
   </a>
 <% end %>
 <% end %>
@@ -76,3 +76,36 @@ if (result > 0) {
 }
 </script>
 <!--JS Code for Search Results END-->
+
+
+<!--JS Code for Animations-->
+<script>
+  // ScrollReveal (https://github.com/jlmakes/scrollreveal)
+
+(function scrollReveal() {
+  window.sr = ScrollReveal();
+  
+  sr.reveal('.card-box', {
+    duration   : 600,
+    distance   : '20px',
+    easing     : 'ease-out',
+    origin     : 'bottom',
+    reset      : true,
+    scale      : 1,
+    viewFactor : 0,
+    afterReveal  : revealChildren,
+  }, 150);
+  
+    var revealChildren = sr.reveal('.card-title, .card-text', {
+    duration   : 500,
+    scale      : 1,
+    distance   : '20px',
+    origin     : 'bottom',
+    reset      : true,
+    easing     : 'ease-out',
+    viewFactor : 1,
+  }, 75);
+})();
+
+</script>
+<!--JS Code for Animations END-->
