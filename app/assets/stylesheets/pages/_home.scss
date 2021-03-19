@@ -20,6 +20,18 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
+
+.hero h1 {
+  box-sizing: border-box;
+  color: #001a49;
+  font-family: Montserrat,sans-serif;
+  font-size: 68px;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1;
+  margin: 0 0 22px;
+
+}
 .text-span {
     color: #c00dff;
 }
@@ -241,6 +253,4 @@ body {
   -o-object-fit: cover;
   object-fit: cover;
 }
-
-
 
