@@ -91,12 +91,7 @@
     }
 }
 
-.MakeTheNoteVisible {
-  position: absolute;
-  transform: scale(0);
-}
-
-.MakeTheNoteVisible + label {
+.visible-false {
   cursor: pointer;
   display: inline-block;
   /*Button look here*/
@@ -110,11 +105,27 @@
   border-radius: 25px;
 }
 
-.MakeTheNoteVisible:checked + label {
+.visible-true {
+  cursor: pointer;
+  display: inline-block;
+  /*Button look here*/
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 7px 15px;
+  margin: 5px;
+  border: 1px solid #228176;
   background-color: #228176;
+  border-radius: 25px;
+}
+
+.visible-false:hover {
+  background-color: #0D302C;
   color: white;
 }
 
-.note-tag-item {
-  display: inline-block;
+.visible-true:hover {
+  background-color: #6FD8CB;
+  color: white;
 }
+

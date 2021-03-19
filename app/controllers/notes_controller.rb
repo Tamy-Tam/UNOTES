@@ -69,7 +69,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   private
 
   def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :visible)
   end
 
   def set_note
