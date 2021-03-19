@@ -8,6 +8,7 @@ before_action :set_favouritenote, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    authorize @favourite_note
   end
 
   def new
