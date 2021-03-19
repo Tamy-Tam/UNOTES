@@ -35,11 +35,15 @@
 
 
 <!--Search Results-->
-    <% if @search_ycourse
+    <div class="container mb-5 pb-5">
+      <div id="ycourse-list-wrapper">
+
+      <% if @search_ycourse
       @search_ycourse.each do |result| %>
     <img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg">
     <% end %>
     <% end %>
+    </div>
 <!--Search Results END-->
 
 </div>
