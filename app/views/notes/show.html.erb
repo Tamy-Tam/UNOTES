@@ -16,6 +16,7 @@
       </div>
       <div id="editorjs" class="container"></div>
 
-      <%= button_to "Save", action: "update", method: "PATCH" %>
+
+      <%= button_to 'SAVE', note_path(@note), :method => :patch %>
   </div>
 </div>
