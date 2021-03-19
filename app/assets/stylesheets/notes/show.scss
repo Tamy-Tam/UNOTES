@@ -1,3 +1,4 @@
+
 .y-course-wrapper{
     position: relative;
     display: flex;
@@ -7,12 +8,14 @@
 .half-screen {
     width: 50%;
     height: 100%;
+    background-color: rgb(15, 15, 15);
 }
 
 .half-screen-right {
     width: 50%;
     overflow: scroll;
     padding: 5%;
+    background-color: white;
 }
 
 /*nav in notes*/

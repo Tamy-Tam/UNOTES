@@ -1,8 +1,8 @@
-<div class="video-url text-center">
+<div class="title-wrap card-box">
 
-  <%= simple_form_for @ycourse do |f| %>
+  <%= simple_form_for @ycourse, html: { class: "form-wrap card-box"} do |f| %>
   <% if @ycourse.errors.any? %>
-      <div id="error_explanation">
+      <div id="error_explanation card-title">
         <h2><%= pluralize(@ycourse.errors.count, "error") %> prohibited this course from being saved:</h2>
 
         <ul>
@@ -12,8 +12,40 @@
         </ul>
       </div>
     <% end %>
-    <%= f.input :url, placeholder: 'Please enter an URL from Youtube', input_html: { class: "url-input form-control-lg" }, label:'' %>
-    <%=  f.button :submit, 'Insert a course!', class: 'button btn-url color-white w-button pl-6 pr-6' %>
+    <%= f.input :url, placeholder: 'Please enter an URL from Youtube', input_html: { class: "text-field" }, label:'' %>
+    <%=  f.button :submit, 'Insert a course!', class: 'button w-button button-url' %>
   <% end %>
 
 </div>
+
+<!--JS Code for Animations-->
+<script>
+  // ScrollReveal (https://github.com/jlmakes/scrollreveal)
+
+(function scrollReveal() {
+  window.sr = ScrollReveal();
+  
+  sr.reveal('.card-box', {
+    duration   : 600,
+    distance   : '20px',
+    easing     : 'ease-out',
+    origin     : 'bottom',
+    reset      : true,
+    scale      : 1,
+    viewFactor : 0,
+    afterReveal  : revealChildren,
+  }, 150);
+  
+    var revealChildren = sr.reveal('.card-title, .card-text', {
+    duration   : 500,
+    scale      : 1,
+    distance   : '20px',
+    origin     : 'bottom',
+    reset      : true,
+    easing     : 'ease-out',
+    viewFactor : 1,
+  }, 75);
+})();
+
+</script>
+<!--JS Code for Animations END-->
