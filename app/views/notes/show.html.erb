@@ -24,7 +24,14 @@
 
           <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
 
-          <%= f.input :visible, as: :radio_buttons, collection: ['Visible', 'Not Visible'], input_html: { class: "MakeTheNoteVisible" }, item_wrapper_class: 'note-tag-item', id: "MakeTheNoteVisible", label: 'Would you like to make this note visible to others?' %>
+        <% end %>
+
+        <%= simple_form_for(@note) do |f| %>
+
+          <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
+
+           <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
+
         <% end %>
 
       </div>
