@@ -14,7 +14,23 @@
           <a class="feature-link w-inline-block" id="delete-note" href="<%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %>"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg" loading="lazy" alt=""></a>
         </div>
       </div>
+
+      <div class="note-title">
+
+        <%= simple_form_for(@note) do |f| %>
+
+          <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
+
+          <%= f.input :visible, as: :radio_buttons, collection: ['Visible', 'Not Visible'], input_html: { class: "note-title" }, id: "MakeTheNoteVisible", label: 'Would you like to make this note visible to others?' %>
+
+          <%= f.submit 'Change Visibility' %>
+        <% end %>
+
+      </div>
+
+
       <div id="editorjs" class="container"></div>
+
 
 
       <%= button_to 'SAVE', note_path(@note), :method => :patch %>
