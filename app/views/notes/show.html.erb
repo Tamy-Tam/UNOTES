@@ -11,11 +11,26 @@
         <div class="features-wrap">
           <a href="<%=  new_fnote_path(@note) %>" class="feature-link w-inline-block" id="favorite-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt=""></a>
           <a href="#" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
-          <a class="feature-link w-inline-block" id="delete-note" href="<%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %>"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg" loading="lazy" alt=""></a>
+
+
+          <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg"), @note, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </a>
         </div>
       </div>
-      <div id="editorjs" class="container"></div>
 
-      <%= button_to "Save", action: "update", method: "PATCH" %>
+      <div class="note-title text-right">
+
+        <%= simple_form_for(@note) do |f| %>
+
+          <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
+
+          <%= f.input :visible, as: :radio_buttons, collection: ['Visible', 'Not Visible'], input_html: { class: "MakeTheNoteVisible" }, item_wrapper_class: 'note-tag-item', id: "MakeTheNoteVisible", label: 'Would you like to make this note visible to others?' %>
+        <% end %>
+
+      </div>
+
+      <div id="editorjs" class="container note-content" name="note[content]"></div>
+
+      <%= button_to 'SAVE', note_path(@note), :method => :patch %>
   </div>
 </div>
