@@ -1,29 +1,65 @@
-
-.video-url {
-  width: 900px;
-  margin: 100px auto;
-}
-
-#new_ycourse {
+.title-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-
-}
-
-.form-submit {
+  margin-bottom: 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
-  border-radius: 100px;
-  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
-}
-
-.btn-url {
-  height: 50px;
-
-}
-
-.url-input {
-  width: 500px;
-  height: 50px;
-  border-radius: 15px;
   text-align: center;
+}
+
+.form-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+}
+
+.text-field {
+  min-width: 250px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  border: 1px none #000;
+  border-radius: 200px;
+  background-color: #f4f4f4;
+  min-width: 30vw;
+  height: 80px;
+}
+
+.button-url {
+ margin-top:-18px;
+ margin-left:-70px;
+ height: 80px;
+}
+
+#new_ycourse > div > label {
+  display: none;
 }
