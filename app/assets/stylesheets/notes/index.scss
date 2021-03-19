@@ -101,3 +101,47 @@
   max-width: 100%;
   border-radius: 8px;
 }
+
+.text-field {
+  min-width: 250px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  border-radius: 200px;
+  background-color: #f4f4f4;
+  min-width: 30vw;
+  height: 80px;
+}
+
+.search-note-input {
+  border-radius: 100px;
+  width: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  border: 1px none #000;
+  border-radius: 200px;
+  background-color: #f4f4f4;
+  min-width: 30vw;
+  height: 80px;
+}
+
+.search-form {
+  display: flex;
+  max-width: 30vw;
+}
+
+.search-btn {
+  margin-top: 10px;
+}
+
+.search-wrap {
+  display: flew;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-title {
+  margin-bottom: 30px;
+}
