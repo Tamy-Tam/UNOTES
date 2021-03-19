@@ -157,7 +157,8 @@
 .search-form {
   display: flex;
   max-width: 30vw;
-  margin-bottom: 60px;
+  position:absolute;
+  right: 20px;
 }
 
 .search-btn {
