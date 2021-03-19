@@ -29,12 +29,12 @@
 
 
 <!--Search Results-->
-    <div class="container card-box">
+    <div class="container">
       <div id="ycourse-list-wrapper-result">
 
       <% if @search_ycourse
       @search_ycourse.each do |result| %>
-    <img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg">
+    <div class="card-box"><img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg"></div>
     <% end %>
     <% end %>
     </div>
