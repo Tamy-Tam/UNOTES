@@ -17,10 +17,12 @@
 
   <% if @ycourses
   @ycourses_url.each_with_index do |ycourseID, index| %>
-  <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
-    <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
-  </a>
-<% end %>
+  <% if @notes.find(@ycourses[index].id) %>
+    <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
+      <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
+    </a>
+    <% end %>
+  <% end %>
 <% end %>
 </div>
 
