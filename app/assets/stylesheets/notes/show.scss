@@ -47,7 +47,7 @@
     margin-left: 5px;
     padding: 10px;
   }
-  
+
 .features-wrap {
   display: -webkit-box;
   display: -webkit-flex;
@@ -86,4 +86,32 @@
     &:hover{
         text-decoration: none;
     }
+}
+
+.MakeTheNoteVisible {
+  position: absolute;
+  transform: scale(0);
+}
+
+.MakeTheNoteVisible + label {
+  cursor: pointer;
+  display: inline-block;
+  /*Button look here*/
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 7px 15px;
+  margin: 5px;
+  border: 1px solid #228176;
+  background-color: #9EE5DD;
+  border-radius: 25px;
+}
+
+.MakeTheNoteVisible:checked + label {
+  background-color: #228176;
+  color: white;
+}
+
+.note-tag-item {
+  display: inline-block;
 }
