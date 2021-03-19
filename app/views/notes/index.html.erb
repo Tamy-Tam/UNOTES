@@ -36,7 +36,7 @@
 
 <!--Search Results-->
     <div class="container mb-5 pb-5">
-      <div id="ycourse-list-wrapper">
+      <div id="ycourse-list-wrapper-result">
 
       <% if @search_ycourse
       @search_ycourse.each do |result| %>
@@ -67,3 +67,12 @@
 </div>
 </div>
 
+<!--JS Code for Search Results-->
+<script>
+var result = document.getElementById("ycourse-list-wrapper-result").childElementCount;
+if (result > 0) {
+  var ycourse = document.getElementById("ycourse-list-wrapper");
+  ycourse.classList.add("d-none");
+}
+</script>
+<!--JS Code for Search Results END-->
