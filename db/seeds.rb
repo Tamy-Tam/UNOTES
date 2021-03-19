@@ -67,7 +67,7 @@ puts 'Creating 6 fake notes...'
     content: "#{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}
     #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}
     #{Faker::Computer.stack} #{Faker::Computer.stack} #{Faker::Computer.stack}",
-    visible: false,
+    visible: true,
     user_id: user1.id,
     ycourse_id: ycourse_one.id
   )
