@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
-Ycourse.destroy_all
-Note.destroy_all
+
+
+
 FavouriteNote.destroy_all
+Note.destroy_all
+Ycourse.destroy_all
+User.destroy_all
 
 
 #FAKING USERS
