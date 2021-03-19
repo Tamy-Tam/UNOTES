@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all if Rails.env.development?
-Ycourse.destroy_all if Rails.env.development?
-Note.destroy_all if Rails.env.development?
-FavouriteNote.destroy_all if Rails.env.development?
+User.destroy_all
+Ycourse.destroy_all
+Note.destroy_all
+FavouriteNote.destroy_all
 
 
 #FAKING USERS
