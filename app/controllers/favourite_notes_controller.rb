@@ -11,11 +11,13 @@ before_action :set_favouritenote, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    authorize @favourite_note
     @favourite_note = FavouriteNote.new
     @note = @favourite_note.note
   end
 
   def create
+    authorize @favourite_note
     @favourite_note = FavouriteNote.new(favourite_note_params)
     @notes = @favourite_note.note
     @favourite_note.user_id = current_user.id
