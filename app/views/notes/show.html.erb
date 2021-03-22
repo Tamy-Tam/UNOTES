@@ -13,7 +13,7 @@
           <a href="#" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
 
 
-          <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg"), @note, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
           </a>
         </div>
       </div>
@@ -47,7 +47,7 @@
 
 (function scrollReveal() {
   window.sr = ScrollReveal();
-  
+
   sr.reveal('.card-box', {
     duration   : 600,
     distance   : '20px',
@@ -58,7 +58,7 @@
     viewFactor : 0,
     afterReveal  : revealChildren,
   }, 150);
-  
+
     var revealChildren = sr.reveal('.card-title, .card-text', {
     duration   : 500,
     scale      : 1,

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :notes do
   end
 
-  resources :ycourses, only: [:new, :create]
+  resources :ycourses, only: [:new, :create, :destroy]
 
   resources :favourite_notes, as: :fnote
 end

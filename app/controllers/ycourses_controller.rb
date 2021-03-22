@@ -28,7 +28,7 @@ class YcoursesController < ApplicationController
   def destroy
     authorize @ycourse
     @ycourse.destroy
-    redirect_to home_url, notice: 'Your Youtube Course was successfully destroyed'
+    redirect_to "/", notice: 'Your Youtube Course was successfully deleted'
   end
 
   private
