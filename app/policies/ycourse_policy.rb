@@ -8,4 +8,8 @@ class YcoursePolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def destroy?
+    false
+  end
 end
