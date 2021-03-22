@@ -34,6 +34,10 @@ class ApplicationPolicy
     false
   end
 
+  def save_content?
+    false
+  end
+
   class Scope
     attr_reader :user, :scope
 

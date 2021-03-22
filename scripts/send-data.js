@@ -15,8 +15,7 @@ function sendData(data) {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-
-      "ycourse[url]": `${data.url}`
+      ycourse.url: `${data.url}`
     })
   })
 }
