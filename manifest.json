@@ -1,0 +1,22 @@
+{
+  "name": "Unotes chrome extension",
+  "version": "1.0",
+  "description": "Take notes from Youtube tutos !",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "app/assets/images/favicon.png"
+  },
+  "icons": {
+    "16": "app/assets/images/favicon.png",
+    "32": "app/assets/images/favicon.png",
+    "48": "app/assets/images/favicon.png",
+    "128": "app/assets/images/favicon.png"
+  }
+}
