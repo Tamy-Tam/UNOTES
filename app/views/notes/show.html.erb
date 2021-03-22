@@ -8,6 +8,7 @@
         <a href="<%= notes_path %>" class="link-block w-inline-block">
           <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/6053826e1c18ee4b0d70de2b_back-icon.svg" loading="lazy" alt="" class="image-3"><span class="back-to-notes">Back to notes</span>
         </a>
+
         <div class="features-wrap">
           <a href="<%=  new_fnote_path(@note) %>" class="feature-link w-inline-block" id="favorite-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt=""></a>
           <a href="#" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
@@ -21,36 +22,20 @@
       <div class="note-title text-right">
 
         <%= simple_form_for(@note) do |f| %>
-
           <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
-
         <% end %>
 
         <%= simple_form_for(@note) do |f| %>
-
           <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
-
            <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
-
-
-
-
         <% end %>
-
       </div>
 
       <div id="editorjs" data-content="<%= @note.json_content %>"></div>
-      <div>
 
       <button id="saveButton">
         Save content
       </button>
-
-
-
-
-
-
   </div>
 </div>
 

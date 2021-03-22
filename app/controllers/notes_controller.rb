@@ -2,7 +2,7 @@
 
 class NotesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index]
-before_action :set_note, only: [:show, :edit, :update, :destroy]
+before_action :set_note, only: [:show, :edit, :update, :destroy, :save_content]
 protect_from_forgery except: :update
 
   def index

@@ -29,4 +29,11 @@ class NotePolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def save_content?
+    # record.user == user
+    return true
+    # - record: the restaurant passed to the `authorize` method in controller
+    # - user:   the `current_user` signed in with Devise.
+  end
 end
