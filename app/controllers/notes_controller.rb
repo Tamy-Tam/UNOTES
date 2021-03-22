@@ -1,6 +1,9 @@
+# require 'pry-byebug'
+
 class NotesController < ApplicationController
-skip_before_action :authenticate_user!, only: [:index, :show]
+skip_before_action :authenticate_user!, only: [:index]
 before_action :set_note, only: [:show, :edit, :update, :destroy]
+protect_from_forgery except: :update
 
   def index
     @notes = Note.all || "0"
@@ -27,6 +30,8 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
     authorize @note
     @ycourse = Ycourse.find(params[:id]) || "0"
     @ycourseID = get_youtube_id(@ycourse.url)
+
+
   end
 
   def new
@@ -60,6 +65,18 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def save_content
+    authorize @note
+    if @note.update(note_params)
+      respond_to do |format|
+        format.json {render :show}
+      end
+    else
+      render json: { error: "record has not been save, sorry!" }, status: 422
+    end
+  end
+
+
   def destroy
     authorize @note
     @note.destroy
@@ -69,7 +86,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   private
 
   def note_params
-    params.require(:note).permit(:title, :content, :visible)
+    params.require(:note).permit(:title, :json_content, :visible)
   end
 
   def set_note

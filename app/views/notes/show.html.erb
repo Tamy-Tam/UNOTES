@@ -32,15 +32,22 @@
 
            <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
 
+
+
+
         <% end %>
 
       </div>
 
-      <div id="editorjs"></div>
+      <div id="editorjs" data-content="<%= @note.json_content %>"></div>
       <div>
+
       <button id="saveButton">
-        Save Content
+        Save content
       </button>
+
+
+
 
 
 
