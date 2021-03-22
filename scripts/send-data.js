@@ -9,12 +9,14 @@ function fetchData() {
 }
 
 function sendData(data) {
-  const url = 'https://unotes-project.herokuapp.com/ycourses/new';
+  const url = 'http://localhost:3000/ycourses/new';
+  window.open(url);
   fetch(url, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      "content": `${data.url}`
+
+      "ycourse[url]": `${data.url}`
     })
   })
 }
