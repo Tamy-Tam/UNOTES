@@ -1,79 +1,67 @@
 <div class="container mt-5 d-flex justify-content-center .flex-column">
 
   <div class="user-wrapper card-box">
-      <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
-      <h3 class="welcome-name card-title">Welcome back <%=@current_user.first_name%></h3>
-      <div class="badge-wrapper">
-  </div>
+    <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/604d40ac08cd1b201d16d508_Slice%202.jpg" loading="lazy" alt="" class="profil-pic">
+    <h3 class="welcome-name card-title">Welcome back <%=@current_user.first_name%></h3>
 
-
-      <% if policy(Note).create? %>
-        <%= form_tag(notes_path, :method => "get",
-    class: 'search-form') do %>
-  <div class="input-group">
-    <%= search_field_tag :search, params[:search], placeholder: "Looking for a keywork in a note...", class: "search-note-input" %>
-    <div class="input-group-btn">
-      <%= button_tag "Search", :class => 'button create-note-btn color-white w-button pl-4 pr-4 search-btn',:name => nil%>
-    </div>
-  </div>
-<% end %>
+    <div class="badge-wrapper"></div>
+    <% if policy(Note).create? %>
+      <%= form_tag(notes_path, :method => "get",
+  class: 'search-form') do %>
+        <div class="input-group">
+          <%= search_field_tag :search, params[:search], placeholder: "Looking for a keywork in a note...", class: "search-note-input" %>
+          <div class="input-group-btn">
+            <%= button_tag "Search", :class => 'button create-note-btn color-white w-button pl-4 pr-4 search-btn',:name => nil%>
+          </div>
+        </div>
       <% end %>
+    <% end %>
   </div>
 
 </div>
-
-
-
-
-
-
 
 <!--Search Results-->
     <div class="container">
       <div id="ycourse-list-wrapper-result">
-
-      <% if @search_ycourse
-      @search_ycourse.each do |result| %>
-    <div class="card-box"><img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg"></div>
-    <% end %>
-    <% end %>
+        <% if @search_ycourse
+          @search_ycourse.each do |result| %>
+            <div class="card-box">
+              <img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg">
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 <!--Search Results END-->
 
-</div>
-
-
 <!--List Ycourse-->
-
 <div class="container mb-5 pb-5 wrapper">
   <div id="ycourse-list-wrapper">
 
-  <% if @ycourses
-  @ycourses_url.each_with_index do |ycourseID, index| %>
+    <% if @ycourses
+      @ycourses_url.each_with_index do |ycourseID, index| %>
 
-  <% if @notes.find(@ycourses[index].id) %>
-    <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
-      <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
-    </a>
+        <% if @notes.find(@ycourses[index].id) %>
+          <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
+            <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
+          </a>
+        <% end %>
+
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
 </div>
 <!--List Ycourse END-->
 
-</div>
-</div>
-
 <!--JS Code for Search Results-->
 <script>
-var result = document.getElementById("ycourse-list-wrapper-result").childElementCount;
-if (result > 0) {
-  var ycourse = document.getElementById("ycourse-list-wrapper");
-  ycourse.classList.add("d-none");
-}
+  var result = document.getElementById("ycourse-list-wrapper-result").childElementCount;
+  if (result > 0) {
+    var ycourse = document.getElementById("ycourse-list-wrapper");
+    ycourse.classList.add("d-none");
+  }
 </script>
 <!--JS Code for Search Results END-->
-
 
 <!--JS Code for Animations-->
 <script>
