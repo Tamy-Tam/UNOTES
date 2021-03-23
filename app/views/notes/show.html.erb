@@ -10,30 +10,26 @@
 
     <!-- the navigation -->
     <div class="notes-nav">
-      <!-- the Back to the notes link -->
+      <!-- the Back to the notes -->
       <a href="<%= notes_path %>" class="link-block w-inline-block">
         <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/6053826e1c18ee4b0d70de2b_back-icon.svg" loading="lazy" alt="" class="image-3"><span class="back-to-notes">Back to notes</span>
       </a>
-      <!-- end of the link -->
-      <!-- The links: Favorite Delete share -->
+
+      <!-- The links: Favorite / Delete / Share -->
       <div class="features-wrap">
         <!-- favorite -->
         <a href="#" class="feature-link w-inline-block" id="favorite-note">
           <img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt="">
         </a>
-        <!-- end of favorite -->
+
         <!-- share -->
         <a href="#" class="feature-link w-inline-block" id="share-note">
           <img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt="">
         </a>
-        <!-- end of share -->
+
         <!-- delete -->
-        <a href="#">
           <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
-        </a>
-        <!-- end of delete -->
       </div>
-      <!-- end of the links -->
     </div>
     <!-- end of navigation -->
 
