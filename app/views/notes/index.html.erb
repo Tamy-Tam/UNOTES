@@ -5,7 +5,7 @@
       <h3 class="welcome-name card-title">Welcome back <%=@current_user.first_name%></h3>
       <div class="badge-wrapper">
   </div>
-      
+
 
       <% if policy(Note).create? %>
         <%= form_tag(notes_path, :method => "get",
@@ -81,7 +81,7 @@ if (result > 0) {
 
 (function scrollReveal() {
   window.sr = ScrollReveal();
-  
+
   sr.reveal('.card-box', {
     duration   : 600,
     distance   : '20px',
@@ -92,7 +92,7 @@ if (result > 0) {
     viewFactor : 0,
     afterReveal  : revealChildren,
   }, 150);
-  
+
     var revealChildren = sr.reveal('.card-title, .card-text', {
     duration   : 500,
     scale      : 1,
