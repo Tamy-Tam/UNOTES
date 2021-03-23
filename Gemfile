@@ -74,5 +74,5 @@ gem 'faker'
 gem 'editor_js'
 
 # For the Tags
-gem 'acts-as-taggable-on', '~> 6.0'
+gem 'acts-as-taggable-on', '~> 7.0'
 
