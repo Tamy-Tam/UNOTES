@@ -41,130 +41,125 @@ const initEditor = () => {
       type: 'paragraph',
       data: {
         text: 'Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor\'s Core.'
-          }
+        }
       }, {
       "type" : "code",
       "data" : {
-        "code": "body {\n font-size: 14px;\n line-height: 16px;\n}",
+        "code": "body {\n font-size: 14px;\n line-height: 16px;\n}, To open a Code panel press:'CMD+SHIFT+C'",
        }
       }
     ]
-        const editor = new EditorJs({
-            /**
-             * Enable/Disable the read only mode
-             */
-            readOnly: false,
-            /**
-             * Wrapper of Editor
-             */
-            holder: 'editorjs',
-            LogLevel: "ERROR",
-            /**
-             * Common Inline Toolbar settings
-             * - if true (or not specified), the order from 'tool' property will be used
-             * - if an array of tool names, this order will be used
-             */
-            // inlineToolbar: ['link', 'marker', 'bold', 'italic'],
-            // inlineToolbar: true,
 
-            /**
-             * Tools list
-             */
-            tools: {
+    const editor = new EditorJs({
+      /**
+       * Enable/Disable the read only mode
+       */
+      readOnly: false,
+      /**
+       * Wrapper of Editor
+       */
+      holder: 'editorjs',
+      LogLevel: "ERROR",
+      /**
+       * Common Inline Toolbar settings
+       * - if true (or not specified), the order from 'tool' property will be used
+       * - if an array of tool names, this order will be used
+       */
+      // inlineToolbar: ['link', 'marker', 'bold', 'italic'],
+      // inlineToolbar: true,
 
-              code: {
-                class:  CodeTool,
-                inlineToolbar: true,
-                shortcut: 'CMD+SHIFT+C'
-              },
+      /**
+       * Tools list
+       */
+      tools: {
 
-                /**
-                 * Each Tool is a Plugin. Pass them via 'class' option with necessary settings {@link docs/tools.md}
-                 */
-                header: {
-                    class: Header,
-                    // inlineToolbar: ['marker', 'link'],
-                    config: {
-                        placeholder: 'Header'
-                    },
-                    shortcut: 'CMD+SHIFT+H'
-                },
+        code: {
+          class:  CodeTool,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+C'
+        },
 
-                /**
-                 * Or pass class directly without any configuration
-                 */
-                list: {
-                    class: List,
-                    inlineToolbar: true,
-                    shortcut: 'CMD+SHIFT+L'
-                },
+        /**
+         * Each Tool is a Plugin. Pass them via 'class' option with necessary settings {@link docs/tools.md}
+         */
+        header: {
+          class: Header,
+          // inlineToolbar: ['marker', 'link'],
+          config: {
+            placeholder: 'Header'
+          },
+          shortcut: 'CMD+SHIFT+H'
+        },
 
-                checklist: {
-                    class: Checklist,
-                    inlineToolbar: true,
-                },
+        /**
+         * Or pass class directly without any configuration
+         */
+        list: {
+          class: List,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+L'
+        },
 
-                quote: {
-                    class: Quote,
-                    inlineToolbar: true,
-                    config: {
-                        quotePlaceholder: 'Enter a quote',
-                        captionPlaceholder: 'Quote\'s author',
-                    },
-                    shortcut: 'CMD+SHIFT+O'
-                },
-            },
+        checklist: {
+          class: Checklist,
+          inlineToolbar: true,
+        },
 
-            /**
-             * This Tool will be used as default
-             */
-            // defaultBlock: 'paragraph',
+        quote: {
+          class: Quote,
+          inlineToolbar: true,
+          config: {
+            quotePlaceholder: 'Enter a quote',
+            captionPlaceholder: 'Quote\'s author',
+          },
+          shortcut: 'CMD+SHIFT+O'
+        },
+      },
+      /**
+       * Initial Editor data
+       */
+      data: {
+        blocks: editorContent
+      },
 
-            /**
-             * Initial Editor data
-             */
-            data: {
-                blocks: editorContent
-            },
+      onChange: function() {
+        console.log('something changed');
+      }
+    });
 
-            onChange: function() {
-                console.log('something changed');
-            }
+    editor.isReady
+    .then(() => {
+      console.log('Editor.js is ready to work!');
+
+      const saveButton = document.querySelector('#saveButton');
+      saveButton.addEventListener('click', function() {
+        editor.save().then((outputData) => {
+          console.log('Article data: ', outputData);
+          const data = new FormData();
+          data.append('note[json_content]',JSON.stringify(outputData));
+          fetch(window.location.pathname +'/save_content',{
+          method:"PATCH",
+          body:data
+          })
+
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch((error) => {
+            console.log('request failed: ', error);
+          });
+
+        // const outputContent = document.querySelector('#output');
+            // outputContent.innerHTML =JSON.stringify(outputData);
+        }).catch((error) => {
+          console.log('Saving failed: ', error);
         });
 
-        editor.isReady
-            .then(() => {
-                console.log('Editor.js is ready to work!');
-
-                const saveButton = document.querySelector('#saveButton');
-                saveButton.addEventListener('click', function() {
-                    editor.save().then((outputData) => {
-                        console.log('Article data: ', outputData);
-                        const data = new FormData();
-                        data.append('note[json_content]',JSON.stringify(outputData));
-                        fetch(window.location.pathname +'/save_content',{
-                         method:"PATCH",
-                         body:data
-                         })
-
-                          .then(response => response.json())
-                          .then(data => console.log(data))
-                          .catch((error) => {
-                             console.log('request failed: ', error);
-                          });
-
-                        // const outputContent = document.querySelector('#output');
-                        // outputContent.innerHTML =JSON.stringify(outputData);
-                    }).catch((error) => {
-                        console.log('Saving failed: ', error);
-                    });
-
-                })
-            })
-            .catch((reason) => {
-                console.log(`Editor.js initialization failed because of ${reason}`)
-            });
-    };
+      })
+    })
+    .catch((reason) => {
+      console.log(`Editor.js initialization failed because of ${reason}`)
+    });
+  };
 };
 
 export { initEditor };
