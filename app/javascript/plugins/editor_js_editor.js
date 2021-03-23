@@ -149,7 +149,7 @@ const initEditor = () => {
           });
 
         // const outputContent = document.querySelector('#output');
-            // outputContent.innerHTML =JSON.stringify(outputData);
+          // outputContent.innerHTML =JSON.stringify(outputData);
         }).catch((error) => {
           console.log('Saving failed: ', error);
         });
