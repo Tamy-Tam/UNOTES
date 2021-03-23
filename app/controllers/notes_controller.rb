@@ -30,8 +30,6 @@ protect_from_forgery except: :update
     authorize @note
     @ycourse = Ycourse.find(params[:id]) || "0"
     @ycourseID = get_youtube_id(@ycourse.url)
-
-
   end
 
   def new
@@ -75,7 +73,6 @@ protect_from_forgery except: :update
       render json: { error: "record has not been save, sorry!" }, status: 422
     end
   end
-
 
   def destroy
     authorize @note

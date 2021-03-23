@@ -8,7 +8,9 @@ class YcoursesController < ApplicationController
   end
 
   def new
+    url = params[:yt_url]
     @ycourse = Ycourse.new
+    @ycourse.url = url ? url : nil
     authorize @ycourse
   end
 

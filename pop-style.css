@@ -1,18 +1,22 @@
 body {
   width: 200px;
-  height: 200px;
+  height: 55px;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #faf3ff;
 }
 
+/*    text-decoration: none;*/
+
 button#send-data {
-  background: #001b4a;
-  padding: 10px;
-  font-size: 1em;
+  border-radius: 100px;
+  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
+  padding: 14px 48px;
+  font-weight: 600;
+  font-size: 16px;
   border: 0;
-  border-radius: 10px;
   cursor: pointer;
   color: white;
   outline: none !important;
