@@ -39,7 +39,7 @@ class ApplicationPolicy
   end
 
   def tagged?
-    false
+    true
   end
 
   class Scope

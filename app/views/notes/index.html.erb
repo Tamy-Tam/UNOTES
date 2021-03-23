@@ -34,14 +34,6 @@
     </div>
 <!--Search Results END-->
 
-<!-- Tags -->
-<% @notes.each do |n| %>
-    <% n.tag_list.each do |tag| %>
-      <%= link_to tag, tagged_path(tag: tag) %>
-    <% end %>
-  </p>
-<% end %>
-
 <!--List Ycourse-->
 <div class="container mb-5 pb-5 wrapper">
   <div id="ycourse-list-wrapper">
@@ -53,6 +45,7 @@
           <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
             <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
           </a>
+
         <% end %>
 
       <% end %>
@@ -60,6 +53,7 @@
   </div>
 </div>
 <!--List Ycourse END-->
+
 
 <!--JS Code for Search Results-->
 <script>

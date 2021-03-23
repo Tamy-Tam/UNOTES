@@ -1,7 +1,7 @@
 # require 'pry-byebug'
 
 class NotesController < ApplicationController
-skip_before_action :authenticate_user!, only: [:index]
+skip_before_action :authenticate_user!, only: [:index, :tagged]
 before_action :set_note, only: [:show, :edit, :update, :destroy, :save_content]
 protect_from_forgery except: :update
 
@@ -30,6 +30,7 @@ protect_from_forgery except: :update
     authorize @note
     @ycourse = Ycourse.find(params[:id]) || "0"
     @ycourseID = get_youtube_id(@ycourse.url)
+    @related_notes = @note.find_related_tags
   end
 
   def new
@@ -75,7 +76,6 @@ protect_from_forgery except: :update
   end
 
   def tagged
-    authorize @note
     if params[:tag].present?
       @notes = Note.tagged_with(params[:tag])
     else

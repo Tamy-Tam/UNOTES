@@ -34,11 +34,15 @@
     <!-- end of navigation -->
 
     <!-- The forms fort 1/ the Title & 2/The Visible parameter -->
-    <div class="note-title text-right note-forms">
+    <div class="note-title text-right note-forms tag-items">
       <%= simple_form_for(@note) do |f| %>
         <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
         <!-- Add tags as checkboxes -->
-        <%= f.input :tag_list, as: :check_boxes, collection: [ "CSS", "HTML", "JavaScript", "Ruby", "SQL", "C++", "Swift", "JAVA" ] %>
+        <%= f.input :tag_list, as: :check_boxes,
+          collection: [ "CSS", "HTML", "JavaScript", "Ruby", "SQL", "C++", "Swift", "JAVA" ],
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+
         <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
         <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
       <% end %>
@@ -54,6 +58,15 @@
       Save content
     </button>
     <!-- end of the save button -->
+
+    <div class="related_notes">
+    <h3>Related Notes</h3>
+      <ul>
+         <% @related_notes.each do |n| %>
+          <li><%= n.title %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 

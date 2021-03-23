@@ -137,3 +137,40 @@
   border-radius: 5px;
   font-size: 16px;
 }
+
+/* TAGS */
+
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor:pointer;
+  display: inline-block;
+  /*Button Look here */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px 15px;
+  margin: 5px;
+  border: 0;
+  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
+  border-radius: 25px;
+  text-decoration: none;
+  border: 1px solid #7E73FF;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+  opacity: 0.4;
+}
+
+.tag-selector:checked + label {
+  cursor:pointer;
+  /*Button Look here */
+  opacity: 1;
+  color: #7E73FF;
+}
