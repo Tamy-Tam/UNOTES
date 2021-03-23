@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :ycourses, only: [:new, :create, :destroy]
 
   resources :favourite_notes, as: :fnote
+
+  get '/tagged', to: "notes#tagged", as: :tagged
 end

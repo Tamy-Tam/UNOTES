@@ -74,6 +74,15 @@ protect_from_forgery except: :update
     end
   end
 
+  def tagged
+    authorize @note
+    if params[:tag].present?
+      @notes = Note.tagged_with(params[:tag])
+    else
+      @notes = Note.all
+    end
+  end
+
   def destroy
     authorize @note
     @note.destroy
