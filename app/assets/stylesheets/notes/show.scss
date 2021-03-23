@@ -128,6 +128,10 @@
   background-color: #6FD8CB;
   color: white;
 }
+/* End of editor */
+#editorjs {
+  padding-bottom: 30px;
+}
 
 /* Save Button */
 
@@ -179,3 +183,20 @@
   color: white;
 }
 /* End of Tags */
+
+/* Related Tags */
+.related_notes {
+  margin-top: 50px;
+  border: 1px solid #001a49;
+  border-radius: 5px;
+  padding: 15px;
+  color: #001a49;
+  h3 {
+    text-align: center;
+    font-weight: bold;
+  }
+  ul {
+    padding-top: 15px;
+    font-size: 18px;
+  }
+}
