@@ -37,8 +37,10 @@
     <div class="note-title text-right note-forms">
       <%= simple_form_for(@note) do |f| %>
         <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
-        <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
+        <!-- Add tags as checkboxes -->
+        <%= f.input :tag_list, as: :check_boxes, collection: [ "CSS", "HTML", "JavaScript", "Ruby", "SQL", "C++", "Swift", "JAVA" ] %>
         <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
+        <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
       <% end %>
     </div>
     <!-- end of the form -->

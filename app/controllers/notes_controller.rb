@@ -83,7 +83,7 @@ protect_from_forgery except: :update
   private
 
   def note_params
-    params.require(:note).permit(:title, :json_content, :visible, :tag_list: [])
+    params.require(:note).permit(:title, :json_content, :visible, tag_list: [])
   end
 
   def set_note
