@@ -1,37 +1,61 @@
 <div class="y-course-wrapper card-box">
+  <!-- Youtube video -->
   <div class="half-screen youtube-video-wrapper">
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=@ycourseID%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
+  <!-- end of video -->
 
+  <!-- the right part of the screen -->
   <div class="half-screen-right card-box">
-      <div class="notes-nav">
-        <a href="<%= notes_path %>" class="link-block w-inline-block">
-          <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/6053826e1c18ee4b0d70de2b_back-icon.svg" loading="lazy" alt="" class="image-3"><span class="back-to-notes">Back to notes</span>
+
+    <!-- the navigation -->
+    <div class="notes-nav">
+      <!-- the Back to the notes link -->
+      <a href="<%= notes_path %>" class="link-block w-inline-block">
+        <img src="https://uploads-ssl.webflow.com/604c98ba045b288eacd85143/6053826e1c18ee4b0d70de2b_back-icon.svg" loading="lazy" alt="" class="image-3"><span class="back-to-notes">Back to notes</span>
+      </a>
+      <!-- end of the link -->
+      <!-- The links: Favorite Delete share -->
+      <div class="features-wrap">
+        <!-- favorite -->
+        <a href="#" class="feature-link w-inline-block" id="favorite-note">
+          <img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt="">
         </a>
-
-        <div class="features-wrap">
-          <a href="#" class="feature-link w-inline-block" id="favorite-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt=""></a>
-          <a href="#" class="feature-link w-inline-block" id="share-note"><img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt=""></a>
-
+        <!-- end of favorite -->
+        <!-- share -->
+        <a href="#" class="feature-link w-inline-block" id="share-note">
+          <img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/share_outline_k2ehdj.svg" loading="lazy" alt="">
+        </a>
+        <!-- end of share -->
+        <!-- delete -->
+        <a href="#">
           <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
-          </a>
-        </div>
+        </a>
+        <!-- end of delete -->
       </div>
+      <!-- end of the links -->
+    </div>
+    <!-- end of navigation -->
 
-      <div class="note-title text-right">
+    <!-- The forms fort 1/ the Title & 2/The Visible parameter -->
+    <div class="note-title text-right note-forms">
+      <%= simple_form_for(@note) do |f| %>
+        <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
+        <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
+        <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
+      <% end %>
+    </div>
+    <!-- end of the form -->
 
-        <%= simple_form_for(@note) do |f| %>
-          <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
-          <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
-           <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
-        <% end %>
-      </div>
+    <!-- the editor.js -->
+    <div id="editorjs" data-content="<%= @note.json_content %>"></div>
+    <!-- end of the editor.js -->
 
-      <div id="editorjs" data-content="<%= @note.json_content %>"></div>
-
-      <button id="saveButton">
-        Save content
-      </button>
+    <!-- the Save Button -->
+    <button id="saveButton">
+      Save content
+    </button>
+    <!-- end of the save button -->
   </div>
 </div>
 
