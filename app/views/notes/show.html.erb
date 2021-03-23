@@ -22,9 +22,6 @@
 
         <%= simple_form_for(@note) do |f| %>
           <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
-        <% end %>
-
-        <%= simple_form_for(@note) do |f| %>
           <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
            <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
         <% end %>
