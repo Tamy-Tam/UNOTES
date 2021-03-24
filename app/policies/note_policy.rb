@@ -36,4 +36,8 @@ class NotePolicy < ApplicationPolicy
     # - record: the restaurant passed to the `authorize` method in controller
     # - user:   the `current_user` signed in with Devise.
   end
+
+  def tagged?
+    true
+  end
 end

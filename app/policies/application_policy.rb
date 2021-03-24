@@ -38,6 +38,10 @@ class ApplicationPolicy
     false
   end
 
+  def tagged?
+    true
+  end
+
   class Scope
     attr_reader :user, :scope
 
