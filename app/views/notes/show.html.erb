@@ -67,7 +67,7 @@
     <p>Related Notes</p>
       <ul>
         <% @related_notes.each do |n| %>
-          <li> <%= link_to "#{n.title}", note_path(n) %> </li>
+          <li class="related_notes_items"> <%= link_to "#{n.title}", note_path(n) %> </li>
         <% end %>
       </ul>
     </div>

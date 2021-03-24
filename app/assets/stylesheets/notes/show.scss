@@ -189,19 +189,20 @@
 
 /* Related Tags */
 .related_notes {
-  margin-top: 50px;
+  margin-top: 100px;
   border: 1px solid #001a49;
   border-radius: 5px;
   padding: 15px;
   color: #001a49;
-  ul {
-    padding-top: 15px;
-    font-size: 16px;
-  }
 }
+
 .related_notes > p {
   text-align: center;
   font-size: 20px;
 }
 
-/* favorites */
+.related_notes_items {
+  text-decoration: none;
+  padding-top: 10px;
+  font-size: 16px;
+}
