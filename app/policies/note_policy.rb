@@ -40,4 +40,8 @@ class NotePolicy < ApplicationPolicy
   def tagged?
     true
   end
+
+  def toggle_favorite?
+    true
+  end
 end

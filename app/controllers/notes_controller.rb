@@ -2,7 +2,7 @@
 
 class NotesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :tagged]
-before_action :set_note, only: [:show, :edit, :update, :destroy, :save_content]
+before_action :set_note, only: [:toggle_favorite, :show, :edit, :update, :destroy, :save_content]
 protect_from_forgery except: :update
 
   def index
@@ -86,6 +86,16 @@ protect_from_forgery except: :update
     authorize @note
     @note.destro
     redirect_to notes_url, notice: 'Your Note was successfully destroyed'
+  end
+
+  def toggle_favorite
+    authorize @note
+    if current_user.favorited?(@note)
+      current_user.unfavorite(@note)
+    else
+      current_user.favorite(@note)
+    end
+    redirect_to note_path(@note), notice: "Note #{current_user.favorited?(@note) ? "added to" : "removed from"} favorites"
   end
 
   private
