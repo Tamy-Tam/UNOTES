@@ -14,7 +14,6 @@ protect_from_forgery except: :update
     @ycourses_url = @ycourses.map do |ycourse|
       get_youtube_id(ycourse.url)
     end
-    @fav_notes = FavouriteNote.all || "0"
 
     if params[:search].present?
       @search_notes = Note.where("content ILIKE ?", "%#{params[:search]}%")
@@ -85,7 +84,7 @@ protect_from_forgery except: :update
 
   def destroy
     authorize @note
-    @note.destroy
+    @note.destro
     redirect_to notes_url, notice: 'Your Note was successfully destroyed'
   end
 

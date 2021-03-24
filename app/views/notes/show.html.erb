@@ -18,10 +18,9 @@
 
       <!-- The links: Favorite / Delete / Share -->
       <div class="features-wrap">
+
         <!-- favorite -->
-        <a href="#" class="feature-link w-inline-block" id="favorite-note">
-          <img src="https://res.cloudinary.com/the-peacock/image/upload/v1616087286/heart_outline_ywffh9.svg" loading="lazy" alt="">
-        </a>
+        <%= link_to image_tag(@current_user.favorited?(@note) ? "https://res.cloudinary.com/dr1gk6cpf/image/upload/v1616576262/Unotes/Heart_Full.svg" : "https://res.cloudinary.com/dr1gk6cpf/image/upload/v1616576270/Unotes/heart%20_empty.svg"), class: "favorite-or-not", value: @current_user.favorited?(@note) ? @current_user.unfavorite(@note) : @current_user.favorite(@note) %>
 
         <!-- share -->
         <a href="#" class="feature-link w-inline-block" id="share-note">
@@ -52,14 +51,13 @@
 
     <!-- the editor.js -->
     <div id="editorjs" data-content="<%= @note.json_content %>"></div>
-    <!-- end of the editor.js -->
 
     <!-- the Save Button -->
     <button id="saveButton">
       Save content
     </button>
-    <!-- end of the save button -->
 
+    <!-- Related Notes -->
     <div class="related_notes">
     <p>Related Notes</p>
       <ul>
