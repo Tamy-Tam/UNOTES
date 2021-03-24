@@ -131,6 +131,7 @@
 /* End of editor */
 #editorjs {
   padding-bottom: 30px;
+
 }
 
 /* Save Button */
@@ -191,12 +192,12 @@
   border-radius: 5px;
   padding: 15px;
   color: #001a49;
-  h3 {
-    text-align: center;
-    font-weight: bold;
-  }
   ul {
     padding-top: 15px;
-    font-size: 18px;
+    font-size: 16px;
   }
+}
+.related_notes > p {
+  text-align: center;
+  font-size: 20px;
 }
