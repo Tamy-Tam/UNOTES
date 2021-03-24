@@ -1,8 +1,8 @@
 # require 'pry-byebug'
 
 class NotesController < ApplicationController
-skip_before_action :authenticate_user!, only: [:index]
-before_action :set_note, only: [:show, :edit, :update, :destroy, :save_content]
+skip_before_action :authenticate_user!, only: [:index, :tagged]
+before_action :set_note, only: [:toggle_favorite, :show, :edit, :update, :destroy, :save_content]
 protect_from_forgery except: :update
 
   def index
@@ -14,7 +14,6 @@ protect_from_forgery except: :update
     @ycourses_url = @ycourses.map do |ycourse|
       get_youtube_id(ycourse.url)
     end
-    @fav_notes = FavouriteNote.all || "0"
 
     if params[:search].present?
       @search_notes = Note.where("text_content ILIKE ?", "%#{params[:search]}%")
@@ -32,6 +31,7 @@ protect_from_forgery except: :update
     authorize @note
     @ycourse = Ycourse.find(params[:id]) || "0"
     @ycourseID = get_youtube_id(@ycourse.url)
+    @related_notes = @note.find_related_tags
   end
 
   def new
@@ -80,16 +80,34 @@ protect_from_forgery except: :update
     end
   end
 
+  def tagged
+    if params[:tag].present?
+      @notes = Note.tagged_with(params[:tag])
+    else
+      @notes = Note.all
+    end
+  end
+
   def destroy
     authorize @note
     @note.destroy
     redirect_to notes_url, notice: 'Your Note was successfully destroyed'
   end
 
+  def toggle_favorite
+    authorize @note
+    if current_user.favorited?(@note)
+      current_user.unfavorite(@note)
+    else
+      current_user.favorite(@note)
+    end
+    redirect_to note_path(@note), notice: "Note #{current_user.favorited?(@note) ? "added to" : "removed from"} favorites"
+  end
+
   private
 
   def note_params
-    params.require(:note).permit(:title, :json_content, :visible)
+    params.require(:note).permit(:title, :json_content, :visible, tag_list: [])
   end
 
   def set_note

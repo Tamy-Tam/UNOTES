@@ -3,4 +3,8 @@ class Note < ApplicationRecord
   belongs_to :ycourse
 
   has_many :favourite_notes
+
+  acts_as_taggable_on :tags
+
+  acts_as_favoritable
 end

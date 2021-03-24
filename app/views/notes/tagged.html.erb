@@ -1,0 +1,8 @@
+<% @notes.each do |n| %>
+  <h2><%= n.title %></h2>
+  <p>
+    <% n.tag_list.each do |tag| %>
+      <%= link_to tag, tagged_path(tag: tag) %>
+    <% end %>
+  </p>
+<% end %>

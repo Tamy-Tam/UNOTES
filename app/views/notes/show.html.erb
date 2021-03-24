@@ -1,3 +1,4 @@
+
 <div class="y-course-wrapper card-box">
   <!-- Youtube video -->
   <div class="half-screen youtube-video-wrapper">
@@ -17,10 +18,19 @@
 
       <!-- The links: Favorite / Delete / Share -->
       <div class="features-wrap">
+
         <!-- favorite -->
+<<<<<<< HEAD
         <a href="#" class="feature-link w-inline-block" id="favorite-note">
 
         </a>
+=======
+        <% if @current_user.favorited?(@note) %>
+          <%= link_to image_tag("https://res.cloudinary.com/dr1gk6cpf/image/upload/v1616576262/Unotes/Heart_Full.svg"), toggle_favorite_path(@note), method: :post, class: 'favorite-false' %>
+        <% else %>
+          <%= link_to image_tag("https://res.cloudinary.com/dr1gk6cpf/image/upload/v1616576270/Unotes/heart%20_empty.svg"), toggle_favorite_path(@note), method: :post, class: 'favorite-true' %>
+        <% end %>
+>>>>>>> master
 
         <!-- share -->
         <a href="#" class="feature-link w-inline-block" id="share-note">
@@ -28,30 +38,45 @@
         </a>
 
         <!-- delete -->
-          <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
+        <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
       </div>
     </div>
     <!-- end of navigation -->
 
     <!-- The forms fort 1/ the Title & 2/The Visible parameter -->
-    <div class="note-title text-right note-forms">
+    <div class="note-title text-right note-forms tag-items">
       <%= simple_form_for(@note) do |f| %>
         <%= f.input :title, input_html: { class: "note-title" }, placeholder: 'My lovely Title' %>
-        <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
-        <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
+        <!-- Add tags as checkboxes -->
+        <%= f.input :tag_list, as: :check_boxes,
+          collection: [ "CSS", "HTML", "JavaScript", "Ruby", "SQL", "C++", "Swift", "JAVA" ],
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+
+        <%= f.input :visible, as: :boolean, input_html: { class: "toggle visible" }, value: @note.visible ? false : true %>
+
+        <%= f.button :submit, class: "submit-form" %>
       <% end %>
     </div>
     <!-- end of the form -->
 
     <!-- the editor.js -->
     <div id="editorjs" data-content="<%= @note.json_content %>"></div>
-    <!-- end of the editor.js -->
 
     <!-- the Save Button -->
     <button id="saveButton">
       Save content
     </button>
-    <!-- end of the save button -->
+
+    <!-- Related Notes -->
+    <div class="related_notes">
+    <p>Related Notes</p>
+      <ul>
+         <% @related_notes.each do |n| %>
+          <li><%= n.title %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 
