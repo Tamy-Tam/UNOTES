@@ -72,8 +72,8 @@
     <div class="related_notes">
     <p>Related Notes</p>
       <ul>
-         <% @related_notes.each do |n| %>
-          <li><%= n.title %></li>
+        <% @related_notes.each do |n| %>
+          <li class="related_notes_items"> <%= link_to "#{n.title}", note_path(n) %> </li>
         <% end %>
       </ul>
     </div>
