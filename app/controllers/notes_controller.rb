@@ -16,10 +16,12 @@ protect_from_forgery except: :update
     end
 
     if params[:search].present?
-      @search_notes = Note.where("content ILIKE ?", "%#{params[:search]}%")
-      @search_ycourse = @search_notes.map do |ycourse|
-        get_youtube_id(Ycourse.find(ycourse.ycourse_id).url)
+      @search_notes = Note.where("text_content ILIKE ?", "%#{params[:search]}%")
+      @search_ycourse = @search_notes.map.with_index do |ycourse, index|
+        get_youtube_id(Ycourse.find(@search_notes.find(@ycourses[index].id).id).url)
       end
+
+
     else
       @search_notes = @notes
     end
@@ -66,6 +68,10 @@ protect_from_forgery except: :update
   def save_content
     authorize @note
     if @note.update(note_params)
+      @note.text_content= JSON.parse(@note.json_content)
+      @note.save
+
+
       respond_to do |format|
         format.json {render :show}
       end

@@ -24,13 +24,24 @@
     <div class="container">
       <div id="ycourse-list-wrapper-result">
         <% if @search_ycourse
-          @search_ycourse.each do |result| %>
+          @search_ycourse.each_with_index do |result,index| %>
+
+
             <div class="card-box">
-              <img src="https://img.youtube.com/vi/<%=result%>/0.jpg" class="course-thumbnail shadow-lg">
+               <% if @search_notes.find(@ycourses[index].id) %>
+               <a href="<%= note_path(@search_notes.find(@ycourses[index].id)) %>">
+              <img src="https://img.youtube.com/vi/<%= result%>/0.jpg" class="course-thumbnail shadow-lg">
+              </a>
+              <% end %>
             </div>
+
+
+
           <% end %>
         <% end %>
       </div>
+
+
     </div>
 <!--Search Results END-->
 
@@ -44,6 +55,7 @@
         <% if @notes.find(@ycourses[index].id) %>
           <a href="<%= note_path(@notes.find(@ycourses[index].id)) %>">
             <img src="https://img.youtube.com/vi/<%=ycourseID%>/0.jpg" class="course-thumbnail shadow-lg">
+
           </a>
 
         <% end %>
