@@ -84,7 +84,7 @@ protect_from_forgery except: :update
 
   def destroy
     authorize @note
-    @note.destro
+    @note.destroy
     redirect_to notes_url, notice: 'Your Note was successfully destroyed'
   end
 

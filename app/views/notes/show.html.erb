@@ -22,12 +22,9 @@
         <!-- favorite -->
         <% if @current_user.favorited?(@note) %>
           <%= link_to image_tag("https://res.cloudinary.com/dr1gk6cpf/image/upload/v1616576262/Unotes/Heart_Full.svg"), toggle_favorite_path(@note), method: :post, class: 'favorite-false' %>
-
         <% else %>
           <%= link_to image_tag("https://res.cloudinary.com/dr1gk6cpf/image/upload/v1616576270/Unotes/heart%20_empty.svg"), toggle_favorite_path(@note), method: :post, class: 'favorite-true' %>
         <% end %>
-
-
 
         <!-- share -->
         <a href="#" class="feature-link w-inline-block" id="share-note">
@@ -35,7 +32,7 @@
         </a>
 
         <!-- delete -->
-          <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
+        <%= link_to image_tag("https://res.cloudinary.com/the-peacock/image/upload/v1616087286/trash_full_solpsf.svg") %>
       </div>
     </div>
     <!-- end of navigation -->
@@ -50,9 +47,9 @@
           input_html: { class: "tag-selector" },
           item_wrapper_class: 'tag-item' %>
 
+        <%= f.input :visible, as: :boolean, input_html: { class: "toggle visible" }, value: @note.visible ? false : true %>
 
-        <%= f.button :submit, "Make this note visible to others", class: " #{@note.visible ? "visible-true" : "visible-false"} " %>
-        <%= f.hidden_field :visible, as: :boolean, input_html: { class: "toggle" }, value: @note.visible ? false : true %>
+        <%= f.button :submit, class: "submit-form" %>
       <% end %>
     </div>
     <!-- end of the form -->
