@@ -63,8 +63,9 @@
     </button>
 
     <!-- Related Notes -->
+    <hr>
     <div class="related_notes">
-    <p>Related Notes</p>
+    <p>On the same Thematic</p>
       <ul>
         <% @related_notes.each do |n| %>
           <li class="related_notes_items"> <%= link_to "#{n.title}", note_path(n) %> </li>
