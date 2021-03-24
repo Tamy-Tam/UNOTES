@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :notes, dependent: :destroy
   has_many :favourite_notes, dependent: :destroy
+
+  acts_as_favoritor
 end

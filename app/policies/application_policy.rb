@@ -42,6 +42,10 @@ class ApplicationPolicy
     true
   end
 
+  def toggle_favorite?
+    false
+  end
+
   class Scope
     attr_reader :user, :scope
 

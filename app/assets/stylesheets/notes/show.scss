@@ -90,7 +90,14 @@
   }
 }
 
-.visible-false {
+/* VISIBLE */
+
+.visible {
+  position: absolute;
+  transform: scale(0);
+}
+
+.visible + label {
   cursor: pointer;
   display: inline-block;
   /*Button look here*/
@@ -102,31 +109,26 @@
   border: 0;
   background-image: linear-gradient(264deg, #fbb479, #9f06ff);
   border-radius: 25px;
-}
-
-.visible-true {
-  cursor: pointer;
-  display: inline-block;
-  /*Button look here*/
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 7px 15px;
-  margin: 5px;
-  border: 0;
-  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
   opacity: 0.4;
-  border-radius: 25px;
 }
 
-.visible-false:hover {
+.visible:checked + label {
+  opacity: 1;
+  color: white;
+}
+
+.visible:hover {
   background-color: #0D302C;
-  color: white;
+  color: blue;
 }
 
-.visible-true:hover {
-  background-color: #6FD8CB;
+.submit-form {
+  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
   color: white;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 /* End of editor */
 #editorjs {
@@ -201,3 +203,5 @@
   text-align: center;
   font-size: 20px;
 }
+
+/* favorites */

@@ -76,3 +76,6 @@ gem 'editor_js'
 # For the Tags
 gem 'acts-as-taggable-on', '~> 7.0'
 
+#  For theFavorites
+gem 'acts_as_favoritor'
+
