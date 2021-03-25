@@ -64,3 +64,16 @@
 #new_ycourse > div > label {
   display: none;
 }
+
+.waiting {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  background-color: darkblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-box-hidden {
+  display: none;
+}

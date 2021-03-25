@@ -1,4 +1,8 @@
-<div class="title-wrap card-box">
+<div class="waiting">
+  <img src="https://samherbert.net/svg-loaders/svg-loaders/puff.svg" width="300" height="300" id="svg-loading" alt="">
+</div>
+
+<div class="title-wrap card-box card-box-hidden">
 
   <%= simple_form_for @ycourse, html: { class: "form-wrap card-box"} do |f| %>
   <% if @ycourse.errors.any? %>

@@ -30,8 +30,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initEditor } from '../plugins/editor_js_editor';
+import { redirecting } from '../components/redirecting_form';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initEditor();
+  redirecting();
 });

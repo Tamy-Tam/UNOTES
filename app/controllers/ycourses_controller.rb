@@ -23,6 +23,7 @@ class YcoursesController < ApplicationController
     if @ycourse.save && @note.save
       redirect_to note_path(@note), notice: "A new Youtube Course has been added!"
     else
+      @ycourse = Ycourse.new
       render :new
     end
   end
