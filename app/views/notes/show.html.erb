@@ -51,7 +51,7 @@
 
         <%= f.input :visible, as: :boolean, input_html: { class: "toggle visible" }, value: @note.visible ? false : true %>
 
-        <%= f.button :submit, class: "submit-form" %>
+        <%= f.button :submit, class: "submit-form", id:"saveButton"%>
       <% end %>
     </div>
     <!-- end of the form -->
@@ -60,10 +60,10 @@
     <div id="editorjs" data-content="<%= @note.json_content %>"></div>
 
     <!-- the Save Button -->
-    <button id="saveButton">
+   <!--  <button id="saveButton">
       Save content
     </button>
-
+ -->
     <!-- Related Notes -->
     <hr>
     <div class="related_notes">
