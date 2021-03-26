@@ -101,20 +101,21 @@
   cursor: pointer;
   display: inline-block;
   /*Button look here*/
-  color: white;
+  color: #cd5dbc;
   font-size: 16px;
   font-weight: bold;
   padding: 7px 15px;
   margin: 5px;
-  border: 0;
-  background-image: linear-gradient(264deg, #fbb479, #9f06ff);
+  border: 1px solid #cd5dbc;
   border-radius: 25px;
   opacity: 0.4;
+  font-style: italic;
 }
 
 .visible:checked + label {
   opacity: 1;
-  color: white;
+  color: #b153e8;
+  font-style: normal;
 }
 
 .visible:hover {
@@ -175,12 +176,13 @@
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
   opacity: 0.3;
+  font-style: italic;
 }
 
 .tag-selector:checked + label {
   opacity: 1;
   color: white;
-  font-style: italic;
+  font-style: normal;
 }
 
 .form-check-input.is-valid ~ .form-check-label {
